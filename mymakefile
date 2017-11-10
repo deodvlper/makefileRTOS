@@ -1,3 +1,6 @@
+objcopy: linking
+	arm-none-eabi-objcopy -v -O binary frdmkw41z_rtos_examples_makefile.axf trytodownloadme.bin
+
 linking: fsl_debug_console.o startup_mkw41z4.o freertos_hello.o mtb.o croutine.o event_groups.o fsl_tickless_lptmr.o fsl_tickless_systick.o heap_4.o list.o port.o queue.o tasks.o timers.o fsl_clock.o fsl_common.o fsl_flash.o fsl_gpio.o fsl_lptmr.o fsl_lpuart.o fsl_lpuart_freertos.o fsl_smc.o board.o clock_config.o pin_mux.o system_MKW41Z4.o	
 	arm-none-eabi-gcc -nostdlib -Xlinker -Map="frdmkw41z_rtos_examples_makefile.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0plus -mthumb -T frdmkw41z_rtos_examples_freertos_hello_Debug.ld -o "frdmkw41z_rtos_examples_makefile.axf"  ./utilities/fsl_debug_console.o  ./startup/startup_mkw41z4.o  ./source/freertos_hello.o ./source/mtb.o  ./freertos/croutine.o ./freertos/event_groups.o ./freertos/fsl_tickless_lptmr.o ./freertos/fsl_tickless_systick.o ./freertos/heap_4.o ./freertos/list.o ./freertos/port.o ./freertos/queue.o ./freertos/tasks.o ./freertos/timers.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_flash.o ./drivers/fsl_gpio.o ./drivers/fsl_lptmr.o ./drivers/fsl_lpuart.o ./drivers/fsl_lpuart_freertos.o ./drivers/fsl_smc.o  ./board/board.o ./board/clock_config.o ./board/pin_mux.o  ./CMSIS/system_MKW41Z4.o
 
